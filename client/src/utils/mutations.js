@@ -45,12 +45,32 @@ mutation saveBook($bookId: String!, $authors: [String!], $description: String!, 
 
 `
 export const REMOVE_BOOK = gql`
-mutation removeBook($)
+mutation removeBook($bookId: String!) {
+  removeBook(bookId: $bookId) {
+    _id
+    username
+    email
+    bookCount 
+    savedBooks {
+      bookId
+      authors
+      description
+      title
+      image
+      link
+    }
+  }
+}
 `
 // refer to server/schemas/typeDefs
 // refer to graphQL Playground Mutations
 
 /*
+//////////////////////////////////////////////
+// NOTES ON MUTATION, GRAPHQL, AND STRUCTURE//
+//////////////////////////////////////////////
+/
+
 type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
@@ -74,4 +94,9 @@ input bookInput{
   image: String
   link: String
 }
+
+graphQL removebook DOCS
+removeBook(
+  bookId: ID!
+) User
 */
