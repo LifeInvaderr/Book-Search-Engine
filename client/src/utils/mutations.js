@@ -24,25 +24,54 @@ mutation addUser($username: String!,$email: String!, $password: String!) {
   }`
 
 // refer to "input on typeDefs to fill"
-// export const SAVE_BOOK = gql`
-//     mutation saveBook($authors: [String!], $description: String!, $title: String!, $image: Stringe!, $link: String!) {
-//     }
-// `
 
-// export const REMOVE_BOOK = gql`
-//     mutation removeBook($bookId: String!) {
-//         removeBook(bookId: $bookId) {
-//             _id
-//         }
-//     }
-// `
+export const SAVE_BOOK = gql`
+mutation saveBook($bookId: String!, $authors: [String!], $description: String!, $title: String!, $image: String!, $link: String!) {
+  saveBook(bookId: $bookId, authors: $authors, description: $description, title: $title, image: $image, link: $link) {
+    _id
+    username
+    email
+    bookCount
+    savedBooks {
+      bookId
+      authors
+      description
+      title
+      image
+      link
+    }
+  }
+}
 
+`
+export const REMOVE_BOOK = gql`
+mutation removeBook($)
+`
 // refer to server/schemas/typeDefs
 // refer to graphQL Playground Mutations
 
-// type Mutation {
-//     login(email: String!, password: String!): Auth
-//     addUser(username: String!, email: String!, password: String!): Auth
-//     saveBook(input: bookInput): User
-//     removeBook(bookId: ID!): User
-// }
+/*
+type Mutation {
+  login(email: String!, password: String!): Auth
+  addUser(username: String!, email: String!, password: String!): Auth
+  saveBook(input: bookInput): User // use input typeDef
+  removeBook(bookId: ID!): User
+}
+
+type User {
+  _id: ID
+  username: String
+  email: String
+  bookCount: Int
+  savedBooks: [Book] //input bookInput in graphQL DOCS
+}
+
+input bookInput{
+  bookId: String
+  authors: [String]
+  description: String
+  title: String
+  image: String
+  link: String
+}
+*/
