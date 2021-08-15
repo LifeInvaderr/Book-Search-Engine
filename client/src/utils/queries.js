@@ -15,7 +15,7 @@ me {
     username
     email
     bookCount
-    saveBooks [Book] {
+    saveBooks {
         bookId
         authors
         description
