@@ -26,8 +26,8 @@ mutation addUser($username: String!,$email: String!, $password: String!) {
 // refer to "input on typeDefs to fill"
 
 export const SAVE_BOOK = gql`
-mutation saveBook($bookId: String!, $authors: [String!], $description: String!, $title: String!, $image: String!, $link: String!) {
-  saveBook(bookId: $bookId, authors: $authors, description: $description, title: $title, image: $image, link: $link) {
+mutation saveBook($input: bookInput) {
+  saveBook(input: $input) {
     _id
     username
     email
@@ -45,7 +45,7 @@ mutation saveBook($bookId: String!, $authors: [String!], $description: String!, 
 
 `
 export const REMOVE_BOOK = gql`
-mutation removeBook($bookId: String!) {
+mutation removeBook($bookId: ID!) {
   removeBook(bookId: $bookId) {
     _id
     username
