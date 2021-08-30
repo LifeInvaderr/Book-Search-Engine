@@ -9,11 +9,15 @@ Url to the deployed page: https://google-book-search-mattk.herokuapp.com/
 With Google Book Search Engine, any user could create an account, and search for books to add to their collection
 
 ## Table of contents
+* [Technologies](#technologies)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Questions](#questions)
 
-
+## Technologies
+* React
+* GraphQL
+* MongoDB
 
 ## Installation
 To install this repository, please either clone or install the zip version.
