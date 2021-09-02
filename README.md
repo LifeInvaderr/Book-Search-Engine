@@ -29,7 +29,6 @@ To run locally, please use `npm start` to initialize the files
 With Google Book Search Engine, users are able to track their favorite books, or new series and add to a collection
 
 ## Questions
-
 For any questions or concerns, please email me at matthewkausfox@gmail.com
 
 Thank you!
